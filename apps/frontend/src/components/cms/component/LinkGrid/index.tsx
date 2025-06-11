@@ -27,7 +27,7 @@ export const LinkGridElement: CmsComponent<LinkGridDataFragment> = ({
   );
 };
 
-LinkGridElement.displayName = "LinkGrid";
+LinkGridElement.displayName = "LinkGridItem";
 LinkGridElement.getDataFragment = () => [
   "LinkGridData",
   LinkGridDataFragmentDoc,
