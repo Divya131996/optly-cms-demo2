@@ -216,6 +216,19 @@ export const LayoutSettingsBlockDataFragmentDoc = gql`
   appIdentifiers
 }
     `;
+export const LinkGridDataFragmentDoc = gql`
+    fragment LinkGridData on LinkGrid {
+  Title
+  Links {
+    ... on LinkItemBlock {
+      Title
+      Url {
+        ...LinkItemData
+      }
+    }
+  }
+}
+    `;
 export const MenuNavigationBlockDataFragmentDoc = gql`
     fragment MenuNavigationBlockData on MenuNavigationBlock {
   _metadata {
@@ -371,6 +384,7 @@ export const ContinueReadingComponentDataFragmentDoc = gql`
     ...HeroBlockData
     ...ImageElementData
     ...LayoutSettingsBlockData
+    ...LinkGridData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
     ...OdpEmbedBlockData
@@ -402,6 +416,7 @@ export const CarouselBlockDataFragmentDoc = gql`
     ...HeroBlockData
     ...ImageElementData
     ...LayoutSettingsBlockData
+    ...LinkGridData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
     ...OdpEmbedBlockData
@@ -431,6 +446,7 @@ export const CompositionComponentNodeDataFragmentDoc = gql`
     ...HeroBlockData
     ...ImageElementData
     ...LayoutSettingsBlockData
+    ...LinkGridData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
     ...OdpEmbedBlockData
@@ -512,6 +528,7 @@ export const BlogPostPageDataFragmentDoc = gql`
     ...HeroBlockData
     ...ImageElementData
     ...LayoutSettingsBlockData
+    ...LinkGridData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
     ...OdpEmbedBlockData
@@ -556,6 +573,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...HeroBlockData
     ...ImageElementData
     ...LayoutSettingsBlockData
+    ...LinkGridData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
     ...OdpEmbedBlockData
@@ -580,6 +598,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...HeroBlockData
     ...ImageElementData
     ...LayoutSettingsBlockData
+    ...LinkGridData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
     ...OdpEmbedBlockData
@@ -683,6 +702,7 @@ ${ButtonBlockPropertyDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
 ${LayoutSettingsBlockDataFragmentDoc}
 ${LinkItemDataFragmentDoc}
+${LinkGridDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
 ${MenuNavigationBlockDataFragmentDoc}
 ${BlogPostPageMenuBlockFragmentDoc}
@@ -1086,6 +1106,7 @@ export const getContentByIdDocument = gql`
       ...HeroBlockData
       ...ImageElementData
       ...LayoutSettingsBlockData
+      ...LinkGridData
       ...MegaMenuGroupBlockData
       ...MenuNavigationBlockData
       ...OdpEmbedBlockData
@@ -1125,6 +1146,7 @@ ${ButtonBlockPropertyDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
 ${LayoutSettingsBlockDataFragmentDoc}
 ${LinkItemDataFragmentDoc}
+${LinkGridDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
 ${MenuNavigationBlockDataFragmentDoc}
 ${BlogPostPageMenuBlockFragmentDoc}
@@ -1192,6 +1214,7 @@ ${ButtonBlockPropertyDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
 ${LayoutSettingsBlockDataFragmentDoc}
 ${LinkItemDataFragmentDoc}
+${LinkGridDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
 ${MenuNavigationBlockDataFragmentDoc}
 ${BlogPostPageMenuBlockFragmentDoc}

@@ -1,9 +1,10 @@
 fragment LinkGridData on LinkGrid {
-  title
-  links {
-    title
-    url {
-      href
+  Title
+  Links {
+    ... on LinkItemBlock {
+      Title
+      Url
+     { ...LinkItemData }
     }
   }
 }
