@@ -1,13 +1,4 @@
 fragment LinkGridData on LinkGrid {
   Title
-  Links {
-    ... on LinkItemBlock {
-      Title
-      Url {
-        text
-        title
-        target
-      }
-    }
-  }
+  LinkGridItem { ...IContentListItem }
 }

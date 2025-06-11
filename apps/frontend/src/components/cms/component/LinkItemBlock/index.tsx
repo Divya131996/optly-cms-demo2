@@ -1,12 +1,12 @@
 import { type CmsComponent } from "@remkoj/optimizely-cms-react";
-import { LinkGridDataFragmentDoc, type LinkGridDataFragment } from "@/gql/graphql";
+import { LinkItemBlockDataFragmentDoc, type LinkItemBlockDataFragment } from "@/gql/graphql";
 
 /**
- * LinkGrid
+ * LinkItemBlock
  * 
  */
-export const LinkGridComponent : CmsComponent<LinkGridDataFragment> = ({ data, children }) => {
-    const componentName = 'LinkGrid'
+export const LinkItemBlockComponent : CmsComponent<LinkItemBlockDataFragment> = ({ data, children }) => {
+    const componentName = 'LinkItemBlock'
     const componentInfo = ''
     return <div className="w-full border-y border-y-solid border-y-slate-900 py-2 mb-4">
         <div className="font-bold italic">{ componentName }</div>
@@ -15,7 +15,7 @@ export const LinkGridComponent : CmsComponent<LinkGridDataFragment> = ({ data, c
         { children && <div className="mt-4 mx-4 flex flex-col">{ children }</div>}
     </div>
 }
-LinkGridComponent.displayName = "LinkGrid (Component/LinkGrid)"
-LinkGridComponent.getDataFragment = () => ['LinkGridData', LinkGridDataFragmentDoc]
+LinkItemBlockComponent.displayName = "LinkItemBlock (Component/LinkItemBlock)"
+LinkItemBlockComponent.getDataFragment = () => ['LinkItemBlockData', LinkItemBlockDataFragmentDoc]
 
-export default LinkGridComponent
+export default LinkItemBlockComponent

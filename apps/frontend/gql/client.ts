@@ -219,15 +219,18 @@ export const LayoutSettingsBlockDataFragmentDoc = gql`
 export const LinkGridDataFragmentDoc = gql`
     fragment LinkGridData on LinkGrid {
   Title
-  Links {
-    ... on LinkItemBlock {
-      Title
-      Url {
-        text
-        title
-        target
-      }
-    }
+  LinkGridItem {
+    ...IContentListItem
+    ...ImageMediaComponentData
+    ...VideoMediaComponentData
+  }
+}
+    `;
+export const LinkItemBlockDataFragmentDoc = gql`
+    fragment LinkItemBlockData on LinkItemBlock {
+  Title
+  Url {
+    ...LinkItemData
   }
 }
     `;
@@ -387,6 +390,7 @@ export const ContinueReadingComponentDataFragmentDoc = gql`
     ...ImageElementData
     ...LayoutSettingsBlockData
     ...LinkGridData
+    ...LinkItemBlockData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
     ...OdpEmbedBlockData
@@ -419,6 +423,7 @@ export const CarouselBlockDataFragmentDoc = gql`
     ...ImageElementData
     ...LayoutSettingsBlockData
     ...LinkGridData
+    ...LinkItemBlockData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
     ...OdpEmbedBlockData
@@ -449,6 +454,7 @@ export const CompositionComponentNodeDataFragmentDoc = gql`
     ...ImageElementData
     ...LayoutSettingsBlockData
     ...LinkGridData
+    ...LinkItemBlockData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
     ...OdpEmbedBlockData
@@ -531,6 +537,7 @@ export const BlogPostPageDataFragmentDoc = gql`
     ...ImageElementData
     ...LayoutSettingsBlockData
     ...LinkGridData
+    ...LinkItemBlockData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
     ...OdpEmbedBlockData
@@ -576,6 +583,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...ImageElementData
     ...LayoutSettingsBlockData
     ...LinkGridData
+    ...LinkItemBlockData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
     ...OdpEmbedBlockData
@@ -601,6 +609,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...ImageElementData
     ...LayoutSettingsBlockData
     ...LinkGridData
+    ...LinkItemBlockData
     ...MegaMenuGroupBlockData
     ...MenuNavigationBlockData
     ...OdpEmbedBlockData
@@ -705,6 +714,7 @@ ${ImageElementDataFragmentDoc}
 ${LayoutSettingsBlockDataFragmentDoc}
 ${LinkItemDataFragmentDoc}
 ${LinkGridDataFragmentDoc}
+${LinkItemBlockDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
 ${MenuNavigationBlockDataFragmentDoc}
 ${BlogPostPageMenuBlockFragmentDoc}
@@ -1109,6 +1119,7 @@ export const getContentByIdDocument = gql`
       ...ImageElementData
       ...LayoutSettingsBlockData
       ...LinkGridData
+      ...LinkItemBlockData
       ...MegaMenuGroupBlockData
       ...MenuNavigationBlockData
       ...OdpEmbedBlockData
@@ -1149,6 +1160,7 @@ ${ImageElementDataFragmentDoc}
 ${LayoutSettingsBlockDataFragmentDoc}
 ${LinkItemDataFragmentDoc}
 ${LinkGridDataFragmentDoc}
+${LinkItemBlockDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
 ${MenuNavigationBlockDataFragmentDoc}
 ${BlogPostPageMenuBlockFragmentDoc}
@@ -1217,6 +1229,7 @@ ${ImageElementDataFragmentDoc}
 ${LayoutSettingsBlockDataFragmentDoc}
 ${LinkItemDataFragmentDoc}
 ${LinkGridDataFragmentDoc}
+${LinkItemBlockDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
 ${MenuNavigationBlockDataFragmentDoc}
 ${BlogPostPageMenuBlockFragmentDoc}

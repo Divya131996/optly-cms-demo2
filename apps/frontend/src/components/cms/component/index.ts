@@ -12,6 +12,8 @@ import OdpEmbedBlockComponent from "./OdpEmbedBlock";
 import MenuNavigationBlockComponent from "./MenuNavigationBlock";
 import MegaMenuGroupBlockMobileComponent from "./MegaMenuGroupBlock/mobile";
 import MegaMenuGroupBlockComponent from "./MegaMenuGroupBlock";
+import LinkItemBlockComponent from "./LinkItemBlock";
+import LinkGridComponent from "./LinkGrid";
 import LayoutSettingsBlockComponent from "./LayoutSettingsBlock";
 import ImageElementComponent from "./ImageElement";
 import HeroBlockComponent from "./HeroBlock";
@@ -24,7 +26,6 @@ import ButtonBlockComponent from "./ButtonBlock";
 import ArticleListElementComponent from "./ArticleListElement";
 import ArticleListElementLoader from "./ArticleListElement/loading";
 import ComponentPageFactory from "./Page";
-import LinkGridElement from "./LinkGrid";
 
 // Prefix entries - if needed
 prefixDictionaryEntries(ComponentPageFactory, "Page");
@@ -76,6 +77,14 @@ export const ComponentFactory : ComponentTypeDictionary = [
         component: MegaMenuGroupBlockComponent 
     },
     { 
+        type: "LinkItemBlock", 
+        component: LinkItemBlockComponent 
+    },
+    { 
+        type: "LinkGrid", 
+        component: LinkGridComponent 
+    },
+    { 
         type: "LayoutSettingsBlock", 
         component: LayoutSettingsBlockComponent 
     },
@@ -116,10 +125,6 @@ export const ComponentFactory : ComponentTypeDictionary = [
         component: ArticleListElementComponent,
         useSuspense: true,
         loader: ArticleListElementLoader
-    },
-    {
-        type: "Component/LinkGrid",
-        component: LinkGridElement
     },
     ...ComponentPageFactory
 ];

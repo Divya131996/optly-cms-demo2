@@ -1,6 +1,6 @@
 {
-  "key": "LinkGrid",
-  "displayName": "LinkGrid",
+  "key": "LinkItemBlock",
+  "displayName": "LinkItemBlock",
   "description": "",
   "baseType": "component",
   "sortOrder": 0,
@@ -16,12 +16,13 @@
       "localized": false,
       "required": false,
       "group": "Information",
-      "sortOrder": -100,
+      "sortOrder": 0,
       "editorSettings": {}
     },
-    "LinkGridItem": {
+    "Url": {
       "type": "array",
-      "displayName": "LinkGridItem",
+      "format": "LinkCollection",
+      "displayName": "Url",
       "description": "",
       "localized": false,
       "required": false,
@@ -29,11 +30,8 @@
       "sortOrder": 0,
       "editorSettings": {},
       "items": {
-        "type": "content",
-        "allowedTypes": [
-          "LinkItemBlock"
-        ],
-        "restrictedTypes": []
+        "type": "component",
+        "contentType": "link"
       }
     }
   }
