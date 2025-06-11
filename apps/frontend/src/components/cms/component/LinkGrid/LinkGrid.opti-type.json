@@ -2,21 +2,23 @@
   "LinkGrid": {
     "type": "LinkGrid",
     "fields": {
-      "title": "string",
-      "links": {
-        "type": "LinkItem",
+      "Title": "string",
+      "Links": {
+        "type": "LinkItemBlock",
         "isArray": true
       }
     }
   },
-  "LinkItem": {
-    "type": "LinkItem",
+  "LinkItemBlock": {
+    "type": "LinkItemBlock",
     "fields": {
-      "title": "string",
-      "url": {
-        "type": "Url",
+      "Title": "string",
+      "Url": {
+        "type": "Link",
         "fields": {
-          "href": "string"
+          "href": "string",
+          "title": "string",
+          "target": "string"
         }
       }
     }

@@ -223,7 +223,9 @@ export const LinkGridDataFragmentDoc = gql`
     ... on LinkItemBlock {
       Title
       Url {
-        ...LinkItemData
+        text
+        title
+        target
       }
     }
   }

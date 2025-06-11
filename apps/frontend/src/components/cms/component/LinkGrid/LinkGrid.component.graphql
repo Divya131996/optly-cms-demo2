@@ -4,7 +4,7 @@ fragment LinkGridData on LinkGrid {
     ... on LinkItemBlock {
       Title
       Url {
-        href
+        text
         title
         target
       }
