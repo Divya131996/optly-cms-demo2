@@ -1,0 +1,9 @@
+fragment LinkGridData on LinkGrid {
+  title
+  links {
+    title
+    url {
+      href
+    }
+  }
+}

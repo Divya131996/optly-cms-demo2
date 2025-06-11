@@ -1,0 +1,24 @@
+{
+  "LinkGrid": {
+    "type": "LinkGrid",
+    "fields": {
+      "title": "string",
+      "links": {
+        "type": "LinkItem",
+        "isArray": true
+      }
+    }
+  },
+  "LinkItem": {
+    "type": "LinkItem",
+    "fields": {
+      "title": "string",
+      "url": {
+        "type": "Url",
+        "fields": {
+          "href": "string"
+        }
+      }
+    }
+  }
+}

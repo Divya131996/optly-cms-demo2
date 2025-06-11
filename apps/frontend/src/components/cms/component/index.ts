@@ -24,6 +24,7 @@ import ButtonBlockComponent from "./ButtonBlock";
 import ArticleListElementComponent from "./ArticleListElement";
 import ArticleListElementLoader from "./ArticleListElement/loading";
 import ComponentPageFactory from "./Page";
+import LinkGridComponent from "./LinkGrid";
 
 // Prefix entries - if needed
 prefixDictionaryEntries(ComponentPageFactory, "Page");
@@ -115,6 +116,10 @@ export const ComponentFactory : ComponentTypeDictionary = [
         component: ArticleListElementComponent,
         useSuspense: true,
         loader: ArticleListElementLoader
+    },
+    {
+        type: "LinkGrid",
+        component: LinkGridComponent
     },
     ...ComponentPageFactory
 ];
