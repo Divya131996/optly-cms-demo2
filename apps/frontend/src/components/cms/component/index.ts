@@ -118,7 +118,7 @@ export const ComponentFactory : ComponentTypeDictionary = [
         loader: ArticleListElementLoader
     },
     {
-        type: "LinkGrid",
+        type: "LinkGrid", // must match display name
         component: LinkGridElement
     },
     ...ComponentPageFactory
