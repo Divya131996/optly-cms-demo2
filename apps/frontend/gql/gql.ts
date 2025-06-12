@@ -20,7 +20,7 @@ type Documents = {
     "fragment ButtonBlockData on ButtonBlock {\n  children: ButtonText\n  url: ButtonUrl {\n    ...LinkData\n  }\n  className: ButtonClass\n  buttonType: ButtonType\n  buttonVariant: ButtonVariant\n}": typeof types.ButtonBlockDataFragmentDoc,
     "fragment ButtonBlockPropertyData on ButtonBlockProperty {\n  children: ButtonText\n  url: ButtonUrl {\n    ...LinkData\n  }\n  className: ButtonClass\n  buttonType: ButtonType\n  buttonVariant: ButtonVariant\n}": typeof types.ButtonBlockPropertyDataFragmentDoc,
     "fragment CTAElementData on CTAElement {\n  cta_text: Text\n  cta_link: Link {\n    ...LinkData\n  }\n}": typeof types.CTAElementDataFragmentDoc,
-    "fragment CardListData on CardList {\n  Title\n  Description\n}": typeof types.CardListDataFragmentDoc,
+    "fragment CardListData on CardList {\n  Title\n  Description\n  Image {\n    ...ImageElementPropertyData\n  }\n}": typeof types.CardListDataFragmentDoc,
     "fragment CardsData on Cards {\n  Title\n  CardListItem {\n    ...IContentListItem\n  }\n}": typeof types.CardsDataFragmentDoc,
     "fragment CarouselBlockData on CarouselBlock {\n  CarouselItemsContentArea {\n    ...IContentListItem\n    ...BlockData\n  }\n}": typeof types.CarouselBlockDataFragmentDoc,
     "fragment ContentRecsElementData on ContentRecsElement {\n  ElementDeliveryApiKey\n  ElementRecommendationCount\n}": typeof types.ContentRecsElementDataFragmentDoc,
@@ -29,6 +29,7 @@ type Documents = {
     "fragment HeadingElementData on HeadingElement {\n  headingText\n}": typeof types.HeadingElementDataFragmentDoc,
     "fragment HeroBlockData on HeroBlock {\n  heroImage: HeroImage {\n    ...ReferenceData\n  }\n  eyebrow: Eyebrow\n  heroHeading: Heading\n  heroSubheading: SubHeading\n  heroDescription: Description {\n    json\n    html\n  }\n  heroColor: HeroColor\n  heroButton: HeroButton {\n    ...ButtonBlockPropertyData\n  }\n}": typeof types.HeroBlockDataFragmentDoc,
     "fragment ImageElementData on ImageElement {\n  altText\n  imageLink {\n    ...ReferenceData\n  }\n}": typeof types.ImageElementDataFragmentDoc,
+    "fragment ImageElementPropertyData on ImageElementProperty {\n  altText\n  imageLink {\n    ...ReferenceData\n  }\n}": typeof types.ImageElementPropertyDataFragmentDoc,
     "fragment LayoutSettingsBlockData on LayoutSettingsBlock {\n  mainMenu {\n    ...IContentListItem\n  }\n  contactInfoHeading\n  serviceButtons {\n    ...IContentListItem\n  }\n  contactInfo {\n    json\n    html\n  }\n  footerMenus {\n    ...IContentListItem\n  }\n  copyright\n  legalLinks {\n    ...LinkItemData\n  }\n  appIdentifiers\n}": typeof types.LayoutSettingsBlockDataFragmentDoc,
     "fragment MegaMenuGroupBlockData on MegaMenuGroupBlock {\n  _metadata {\n    displayName\n  }\n  MenuMenuHeading\n  MegaMenuUrl {\n    ...LinkData\n  }\n  MegaMenuContentArea {\n    ...IContentData\n    ...MenuNavigationBlockData\n    ...BlogPostPageMenuBlock\n  }\n}": typeof types.MegaMenuGroupBlockDataFragmentDoc,
     "fragment MenuNavigationBlockData on MenuNavigationBlock {\n  _metadata {\n    displayName\n  }\n  MenuNavigationHeading\n  NavigationLinks {\n    ...LinkItemData\n  }\n}": typeof types.MenuNavigationBlockDataFragmentDoc,
@@ -72,7 +73,7 @@ const documents: Documents = {
     "fragment ButtonBlockData on ButtonBlock {\n  children: ButtonText\n  url: ButtonUrl {\n    ...LinkData\n  }\n  className: ButtonClass\n  buttonType: ButtonType\n  buttonVariant: ButtonVariant\n}": types.ButtonBlockDataFragmentDoc,
     "fragment ButtonBlockPropertyData on ButtonBlockProperty {\n  children: ButtonText\n  url: ButtonUrl {\n    ...LinkData\n  }\n  className: ButtonClass\n  buttonType: ButtonType\n  buttonVariant: ButtonVariant\n}": types.ButtonBlockPropertyDataFragmentDoc,
     "fragment CTAElementData on CTAElement {\n  cta_text: Text\n  cta_link: Link {\n    ...LinkData\n  }\n}": types.CTAElementDataFragmentDoc,
-    "fragment CardListData on CardList {\n  Title\n  Description\n}": types.CardListDataFragmentDoc,
+    "fragment CardListData on CardList {\n  Title\n  Description\n  Image {\n    ...ImageElementPropertyData\n  }\n}": types.CardListDataFragmentDoc,
     "fragment CardsData on Cards {\n  Title\n  CardListItem {\n    ...IContentListItem\n  }\n}": types.CardsDataFragmentDoc,
     "fragment CarouselBlockData on CarouselBlock {\n  CarouselItemsContentArea {\n    ...IContentListItem\n    ...BlockData\n  }\n}": types.CarouselBlockDataFragmentDoc,
     "fragment ContentRecsElementData on ContentRecsElement {\n  ElementDeliveryApiKey\n  ElementRecommendationCount\n}": types.ContentRecsElementDataFragmentDoc,
@@ -81,6 +82,7 @@ const documents: Documents = {
     "fragment HeadingElementData on HeadingElement {\n  headingText\n}": types.HeadingElementDataFragmentDoc,
     "fragment HeroBlockData on HeroBlock {\n  heroImage: HeroImage {\n    ...ReferenceData\n  }\n  eyebrow: Eyebrow\n  heroHeading: Heading\n  heroSubheading: SubHeading\n  heroDescription: Description {\n    json\n    html\n  }\n  heroColor: HeroColor\n  heroButton: HeroButton {\n    ...ButtonBlockPropertyData\n  }\n}": types.HeroBlockDataFragmentDoc,
     "fragment ImageElementData on ImageElement {\n  altText\n  imageLink {\n    ...ReferenceData\n  }\n}": types.ImageElementDataFragmentDoc,
+    "fragment ImageElementPropertyData on ImageElementProperty {\n  altText\n  imageLink {\n    ...ReferenceData\n  }\n}": types.ImageElementPropertyDataFragmentDoc,
     "fragment LayoutSettingsBlockData on LayoutSettingsBlock {\n  mainMenu {\n    ...IContentListItem\n  }\n  contactInfoHeading\n  serviceButtons {\n    ...IContentListItem\n  }\n  contactInfo {\n    json\n    html\n  }\n  footerMenus {\n    ...IContentListItem\n  }\n  copyright\n  legalLinks {\n    ...LinkItemData\n  }\n  appIdentifiers\n}": types.LayoutSettingsBlockDataFragmentDoc,
     "fragment MegaMenuGroupBlockData on MegaMenuGroupBlock {\n  _metadata {\n    displayName\n  }\n  MenuMenuHeading\n  MegaMenuUrl {\n    ...LinkData\n  }\n  MegaMenuContentArea {\n    ...IContentData\n    ...MenuNavigationBlockData\n    ...BlogPostPageMenuBlock\n  }\n}": types.MegaMenuGroupBlockDataFragmentDoc,
     "fragment MenuNavigationBlockData on MenuNavigationBlock {\n  _metadata {\n    displayName\n  }\n  MenuNavigationHeading\n  NavigationLinks {\n    ...LinkItemData\n  }\n}": types.MenuNavigationBlockDataFragmentDoc,
@@ -159,7 +161,7 @@ export function gql(source: "fragment CTAElementData on CTAElement {\n  cta_text
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "fragment CardListData on CardList {\n  Title\n  Description\n}"): (typeof documents)["fragment CardListData on CardList {\n  Title\n  Description\n}"];
+export function gql(source: "fragment CardListData on CardList {\n  Title\n  Description\n  Image {\n    ...ImageElementPropertyData\n  }\n}"): (typeof documents)["fragment CardListData on CardList {\n  Title\n  Description\n  Image {\n    ...ImageElementPropertyData\n  }\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -192,6 +194,10 @@ export function gql(source: "fragment HeroBlockData on HeroBlock {\n  heroImage:
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(source: "fragment ImageElementData on ImageElement {\n  altText\n  imageLink {\n    ...ReferenceData\n  }\n}"): (typeof documents)["fragment ImageElementData on ImageElement {\n  altText\n  imageLink {\n    ...ReferenceData\n  }\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "fragment ImageElementPropertyData on ImageElementProperty {\n  altText\n  imageLink {\n    ...ReferenceData\n  }\n}"): (typeof documents)["fragment ImageElementPropertyData on ImageElementProperty {\n  altText\n  imageLink {\n    ...ReferenceData\n  }\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

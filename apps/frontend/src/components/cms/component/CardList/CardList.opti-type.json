@@ -27,6 +27,17 @@
       "group": "Information",
       "sortOrder": 0,
       "editorSettings": {}
+    },
+    "Image": {
+      "type": "component",
+      "contentType": "ImageElement",
+      "displayName": "Image",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
     }
   }
 }

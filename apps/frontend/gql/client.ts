@@ -103,10 +103,21 @@ export const CTAElementDataFragmentDoc = gql`
   }
 }
     `;
+export const ImageElementPropertyDataFragmentDoc = gql`
+    fragment ImageElementPropertyData on ImageElementProperty {
+  altText
+  imageLink {
+    ...ReferenceData
+  }
+}
+    `;
 export const CardListDataFragmentDoc = gql`
     fragment CardListData on CardList {
   Title
   Description
+  Image {
+    ...ImageElementPropertyData
+  }
 }
     `;
 export const IContentListItemFragmentDoc = gql`
@@ -711,6 +722,8 @@ ${ArticleListElementDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
 ${CardListDataFragmentDoc}
+${ImageElementPropertyDataFragmentDoc}
+${ReferenceDataFragmentDoc}
 ${CardsDataFragmentDoc}
 ${IContentListItemFragmentDoc}
 ${ImageMediaComponentDataFragmentDoc}
@@ -719,7 +732,6 @@ ${CarouselBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}
-${ReferenceDataFragmentDoc}
 ${ButtonBlockPropertyDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
 ${LayoutSettingsBlockDataFragmentDoc}
@@ -1158,6 +1170,8 @@ ${ArticleListElementDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
 ${CardListDataFragmentDoc}
+${ImageElementPropertyDataFragmentDoc}
+${ReferenceDataFragmentDoc}
 ${CardsDataFragmentDoc}
 ${IContentListItemFragmentDoc}
 ${ImageMediaComponentDataFragmentDoc}
@@ -1167,7 +1181,6 @@ ${ContentRecsElementDataFragmentDoc}
 ${ContinueReadingComponentDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}
-${ReferenceDataFragmentDoc}
 ${ButtonBlockPropertyDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
 ${LayoutSettingsBlockDataFragmentDoc}
@@ -1229,6 +1242,7 @@ ${ArticleListElementDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
 ${CardListDataFragmentDoc}
+${ImageElementPropertyDataFragmentDoc}
 ${CardsDataFragmentDoc}
 ${IContentListItemFragmentDoc}
 ${ImageMediaComponentDataFragmentDoc}

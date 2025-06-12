@@ -1,4 +1,5 @@
 fragment CardListData on CardList {
   Title
   Description
+  Image { ...ImageElementPropertyData }
 }
