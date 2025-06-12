@@ -3,6 +3,7 @@
 import { type ComponentTypeDictionary } from "@remkoj/optimizely-cms-react";
 import VideoElementComponent from "./VideoElement";
 import TextBlockComponent from "./TextBlock";
+import TestRichTextComponent from "./TestRichText";
 import TestimonialElementComponent from "./TestimonialElement";
 import RichTextElementComponent from "./RichTextElement";
 import QuoteBlockComponent from "./QuoteBlock";
@@ -39,6 +40,10 @@ export const ComponentFactory : ComponentTypeDictionary = [
     { 
         type: "TextBlock", 
         component: TextBlockComponent 
+    },
+    { 
+        type: "TestRichText", 
+        component: TestRichTextComponent 
     },
     { 
         type: "TestimonialElement", 
