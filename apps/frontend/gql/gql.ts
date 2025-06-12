@@ -20,6 +20,7 @@ type Documents = {
     "fragment ButtonBlockData on ButtonBlock {\n  children: ButtonText\n  url: ButtonUrl {\n    ...LinkData\n  }\n  className: ButtonClass\n  buttonType: ButtonType\n  buttonVariant: ButtonVariant\n}": typeof types.ButtonBlockDataFragmentDoc,
     "fragment ButtonBlockPropertyData on ButtonBlockProperty {\n  children: ButtonText\n  url: ButtonUrl {\n    ...LinkData\n  }\n  className: ButtonClass\n  buttonType: ButtonType\n  buttonVariant: ButtonVariant\n}": typeof types.ButtonBlockPropertyDataFragmentDoc,
     "fragment CTAElementData on CTAElement {\n  cta_text: Text\n  cta_link: Link {\n    ...LinkData\n  }\n}": typeof types.CTAElementDataFragmentDoc,
+    "fragment CardListData on CardList {\n  Title\n  Description\n}": typeof types.CardListDataFragmentDoc,
     "fragment CarouselBlockData on CarouselBlock {\n  CarouselItemsContentArea {\n    ...IContentListItem\n    ...BlockData\n  }\n}": typeof types.CarouselBlockDataFragmentDoc,
     "fragment ContentRecsElementData on ContentRecsElement {\n  ElementDeliveryApiKey\n  ElementRecommendationCount\n}": typeof types.ContentRecsElementDataFragmentDoc,
     "fragment ContinueReadingComponentData on ContinueReadingComponent {\n  topline\n  shared\n  heading\n  content {\n    ...IContentData\n    ...BlockData\n  }\n}": typeof types.ContinueReadingComponentDataFragmentDoc,
@@ -70,6 +71,7 @@ const documents: Documents = {
     "fragment ButtonBlockData on ButtonBlock {\n  children: ButtonText\n  url: ButtonUrl {\n    ...LinkData\n  }\n  className: ButtonClass\n  buttonType: ButtonType\n  buttonVariant: ButtonVariant\n}": types.ButtonBlockDataFragmentDoc,
     "fragment ButtonBlockPropertyData on ButtonBlockProperty {\n  children: ButtonText\n  url: ButtonUrl {\n    ...LinkData\n  }\n  className: ButtonClass\n  buttonType: ButtonType\n  buttonVariant: ButtonVariant\n}": types.ButtonBlockPropertyDataFragmentDoc,
     "fragment CTAElementData on CTAElement {\n  cta_text: Text\n  cta_link: Link {\n    ...LinkData\n  }\n}": types.CTAElementDataFragmentDoc,
+    "fragment CardListData on CardList {\n  Title\n  Description\n}": types.CardListDataFragmentDoc,
     "fragment CarouselBlockData on CarouselBlock {\n  CarouselItemsContentArea {\n    ...IContentListItem\n    ...BlockData\n  }\n}": types.CarouselBlockDataFragmentDoc,
     "fragment ContentRecsElementData on ContentRecsElement {\n  ElementDeliveryApiKey\n  ElementRecommendationCount\n}": types.ContentRecsElementDataFragmentDoc,
     "fragment ContinueReadingComponentData on ContinueReadingComponent {\n  topline\n  shared\n  heading\n  content {\n    ...IContentData\n    ...BlockData\n  }\n}": types.ContinueReadingComponentDataFragmentDoc,
@@ -152,6 +154,10 @@ export function gql(source: "fragment ButtonBlockPropertyData on ButtonBlockProp
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(source: "fragment CTAElementData on CTAElement {\n  cta_text: Text\n  cta_link: Link {\n    ...LinkData\n  }\n}"): (typeof documents)["fragment CTAElementData on CTAElement {\n  cta_text: Text\n  cta_link: Link {\n    ...LinkData\n  }\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "fragment CardListData on CardList {\n  Title\n  Description\n}"): (typeof documents)["fragment CardListData on CardList {\n  Title\n  Description\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

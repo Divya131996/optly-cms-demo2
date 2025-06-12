@@ -103,6 +103,12 @@ export const CTAElementDataFragmentDoc = gql`
   }
 }
     `;
+export const CardListDataFragmentDoc = gql`
+    fragment CardListData on CardList {
+  Title
+  Description
+}
+    `;
 export const IContentListItemFragmentDoc = gql`
     fragment IContentListItem on _IContent {
   ...IContentData
@@ -369,6 +375,7 @@ export const ContinueReadingComponentDataFragmentDoc = gql`
     ...ArticleListElementData
     ...ButtonBlockData
     ...CTAElementData
+    ...CardListData
     ...CarouselBlockData
     ...ContentRecsElementData
     ...ContinueReadingComponentData
@@ -401,6 +408,7 @@ export const CarouselBlockDataFragmentDoc = gql`
     ...ArticleListElementData
     ...ButtonBlockData
     ...CTAElementData
+    ...CardListData
     ...CarouselBlockData
     ...ContentRecsElementData
     ...ContinueReadingComponentData
@@ -431,6 +439,7 @@ export const CompositionComponentNodeDataFragmentDoc = gql`
     ...ArticleListElementData
     ...ButtonBlockData
     ...CTAElementData
+    ...CardListData
     ...CarouselBlockData
     ...ContentRecsElementData
     ...ContinueReadingComponentData
@@ -513,6 +522,7 @@ export const BlogPostPageDataFragmentDoc = gql`
     ...ArticleListElementData
     ...ButtonBlockData
     ...CTAElementData
+    ...CardListData
     ...CarouselBlockData
     ...ContentRecsElementData
     ...ContinueReadingComponentData
@@ -558,6 +568,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...ArticleListElementData
     ...ButtonBlockData
     ...CTAElementData
+    ...CardListData
     ...CarouselBlockData
     ...ContentRecsElementData
     ...ContinueReadingComponentData
@@ -583,6 +594,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...ArticleListElementData
     ...ButtonBlockData
     ...CTAElementData
+    ...CardListData
     ...CarouselBlockData
     ...ContentRecsElementData
     ...ContinueReadingComponentData
@@ -682,6 +694,7 @@ ${BlockDataFragmentDoc}
 ${ArticleListElementDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
+${CardListDataFragmentDoc}
 ${CarouselBlockDataFragmentDoc}
 ${IContentListItemFragmentDoc}
 ${ImageMediaComponentDataFragmentDoc}
@@ -1091,6 +1104,7 @@ export const getContentByIdDocument = gql`
       ...ArticleListElementData
       ...ButtonBlockData
       ...CTAElementData
+      ...CardListData
       ...CarouselBlockData
       ...ContentRecsElementData
       ...ContinueReadingComponentData
@@ -1125,6 +1139,7 @@ ${PageDataFragmentDoc}
 ${ArticleListElementDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
+${CardListDataFragmentDoc}
 ${CarouselBlockDataFragmentDoc}
 ${IContentListItemFragmentDoc}
 ${ImageMediaComponentDataFragmentDoc}
@@ -1194,6 +1209,7 @@ ${IElementDataFragmentDoc}
 ${ArticleListElementDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
+${CardListDataFragmentDoc}
 ${CarouselBlockDataFragmentDoc}
 ${IContentListItemFragmentDoc}
 ${ImageMediaComponentDataFragmentDoc}
