@@ -1,20 +1,45 @@
-import { type CmsComponent } from "@remkoj/optimizely-cms-react";
-import { LinkGridDataFragmentDoc, type LinkGridDataFragment } from "@/gql/graphql";
+import { type CmsComponent } from "@remkoj/optimizely-cms-react"
+import { LinkGridDataFragmentDoc, type LinkGridDataFragment } from "@/gql/graphql"
 
 /**
  * LinkGrid
- * 
  */
-export const LinkGridComponent : CmsComponent<LinkGridDataFragment> = ({ data, children }) => {
-    const componentName = 'LinkGrid'
-    const componentInfo = ''
-    return <div className="w-full border-y border-y-solid border-y-slate-900 py-2 mb-4">
-        <div className="font-bold italic">{ componentName }</div>
-        <div>{ componentInfo }</div>
-        { Object.getOwnPropertyNames(data).length > 0 && <pre className="w-full overflow-x-hidden font-mono text-sm bg-slate-200 p-2 rounded-sm border border-solid border-slate-900 text-slate-900">{ JSON.stringify(data, undefined, 4) }</pre> }
-        { children && <div className="mt-4 mx-4 flex flex-col">{ children }</div>}
-    </div>
+export const LinkGridComponent: CmsComponent<LinkGridDataFragment> = ({ data, children }) => {
+    const componentName = "LinkGrid"
+    const items = data?.items ?? [] // Adjust if your GraphQL structure differs
+
+    return (
+        <section className="w-full border-y border-y-solid border-y-slate-900 py-6 mb-6 px-4">
+            <h2 className="font-bold italic text-lg mb-4">{componentName}</h2>
+
+            {items.length > 0 ? (
+                <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    {items.map((item, idx) => (
+                        <li key={idx} className="bg-slate-100 p-4 rounded-md shadow-sm border border-slate-300">
+                            {item.url?.default ? (
+                                <a
+                                    href={item.url.default}
+                                    className="text-blue-600 hover:underline font-medium"
+                                    target={item.url.target ?? "_self"}
+                                    rel={item.url.target === "_blank" ? "noopener noreferrer" : undefined}
+                                >
+                                    {item.title ?? item.url.default}
+                                </a>
+                            ) : (
+                                <span>{item.title ?? "Untitled Link"}</span>
+                            )}
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p className="text-sm text-gray-600">No links available.</p>
+            )}
+
+            {children && <div className="mt-6 mx-2">{children}</div>}
+        </section>
+    )
 }
+
 LinkGridComponent.displayName = "LinkGrid (Component/LinkGrid)"
 LinkGridComponent.getDataFragment = () => ['LinkGridData', LinkGridDataFragmentDoc]
 
