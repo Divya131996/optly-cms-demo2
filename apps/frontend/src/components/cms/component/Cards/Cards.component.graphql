@@ -1,0 +1,4 @@
+fragment CardsData on Cards {
+  Title
+  CardListItem { ...IContentListItem }
+}

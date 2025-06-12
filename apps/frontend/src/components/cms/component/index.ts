@@ -21,6 +21,7 @@ import CTAElementComponent from "./CTAElement";
 import ContinueReadingComponentComponent from "./ContinueReadingComponent";
 import ContentRecsElementComponent from "./ContentRecsElement";
 import CarouselBlockComponent from "./CarouselBlock";
+import CardsComponent from "./Cards";
 import CardListComponent from "./CardList";
 import ButtonBlockComponent from "./ButtonBlock";
 import ArticleListElementComponent from "./ArticleListElement";
@@ -111,6 +112,10 @@ export const ComponentFactory : ComponentTypeDictionary = [
     { 
         type: "CarouselBlock", 
         component: CarouselBlockComponent 
+    },
+    { 
+        type: "Cards", 
+        component: CardsComponent 
     },
     { 
         type: "CardList", 

@@ -11,7 +11,7 @@ export const CardListComponent: CmsComponent<CardListDataFragment> = ({ data, ch
 
     return (
         <div className="w-full border-y border-y-solid border-y-slate-900 py-4 mb-4 px-4">
-            <h2 className="font-bold italic text-lg mb-2">{componentName}</h2>
+            
 
             <div className="bg-white p-4 rounded-md shadow border border-slate-300">
                 <h3 className="text-xl font-semibold mb-2 text-slate-800">{title}</h3>

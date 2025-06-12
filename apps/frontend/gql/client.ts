@@ -135,6 +135,16 @@ export const VideoMediaComponentDataFragmentDoc = gql`
   }
 }
     `;
+export const CardsDataFragmentDoc = gql`
+    fragment CardsData on Cards {
+  Title
+  CardListItem {
+    ...IContentListItem
+    ...ImageMediaComponentData
+    ...VideoMediaComponentData
+  }
+}
+    `;
 export const ContentRecsElementDataFragmentDoc = gql`
     fragment ContentRecsElementData on ContentRecsElement {
   ElementDeliveryApiKey
@@ -376,6 +386,7 @@ export const ContinueReadingComponentDataFragmentDoc = gql`
     ...ButtonBlockData
     ...CTAElementData
     ...CardListData
+    ...CardsData
     ...CarouselBlockData
     ...ContentRecsElementData
     ...ContinueReadingComponentData
@@ -409,6 +420,7 @@ export const CarouselBlockDataFragmentDoc = gql`
     ...ButtonBlockData
     ...CTAElementData
     ...CardListData
+    ...CardsData
     ...CarouselBlockData
     ...ContentRecsElementData
     ...ContinueReadingComponentData
@@ -440,6 +452,7 @@ export const CompositionComponentNodeDataFragmentDoc = gql`
     ...ButtonBlockData
     ...CTAElementData
     ...CardListData
+    ...CardsData
     ...CarouselBlockData
     ...ContentRecsElementData
     ...ContinueReadingComponentData
@@ -523,6 +536,7 @@ export const BlogPostPageDataFragmentDoc = gql`
     ...ButtonBlockData
     ...CTAElementData
     ...CardListData
+    ...CardsData
     ...CarouselBlockData
     ...ContentRecsElementData
     ...ContinueReadingComponentData
@@ -569,6 +583,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...ButtonBlockData
     ...CTAElementData
     ...CardListData
+    ...CardsData
     ...CarouselBlockData
     ...ContentRecsElementData
     ...ContinueReadingComponentData
@@ -595,6 +610,7 @@ export const LandingPageDataFragmentDoc = gql`
     ...ButtonBlockData
     ...CTAElementData
     ...CardListData
+    ...CardsData
     ...CarouselBlockData
     ...ContentRecsElementData
     ...ContinueReadingComponentData
@@ -695,10 +711,11 @@ ${ArticleListElementDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
 ${CardListDataFragmentDoc}
-${CarouselBlockDataFragmentDoc}
+${CardsDataFragmentDoc}
 ${IContentListItemFragmentDoc}
 ${ImageMediaComponentDataFragmentDoc}
 ${VideoMediaComponentDataFragmentDoc}
+${CarouselBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}
@@ -1105,6 +1122,7 @@ export const getContentByIdDocument = gql`
       ...ButtonBlockData
       ...CTAElementData
       ...CardListData
+      ...CardsData
       ...CarouselBlockData
       ...ContentRecsElementData
       ...ContinueReadingComponentData
@@ -1140,10 +1158,11 @@ ${ArticleListElementDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
 ${CardListDataFragmentDoc}
-${CarouselBlockDataFragmentDoc}
+${CardsDataFragmentDoc}
 ${IContentListItemFragmentDoc}
 ${ImageMediaComponentDataFragmentDoc}
 ${VideoMediaComponentDataFragmentDoc}
+${CarouselBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
 ${ContinueReadingComponentDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
@@ -1210,10 +1229,11 @@ ${ArticleListElementDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
 ${CardListDataFragmentDoc}
-${CarouselBlockDataFragmentDoc}
+${CardsDataFragmentDoc}
 ${IContentListItemFragmentDoc}
 ${ImageMediaComponentDataFragmentDoc}
 ${VideoMediaComponentDataFragmentDoc}
+${CarouselBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
 ${ContinueReadingComponentDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
