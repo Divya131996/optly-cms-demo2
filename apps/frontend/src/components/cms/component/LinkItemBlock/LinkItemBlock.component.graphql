@@ -1,4 +1,0 @@
-fragment LinkItemBlockData on LinkItemBlock {
-  Title
-  Url { ...LinkItemData }
-}

@@ -1,0 +1,4 @@
+fragment CardListData on CardList {
+  Title
+  Description
+}

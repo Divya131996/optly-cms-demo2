@@ -1,6 +1,6 @@
 {
-  "key": "LinkItemBlock",
-  "displayName": "LinkItemBlock",
+  "key": "CardList",
+  "displayName": "CardList",
   "description": "",
   "baseType": "component",
   "sortOrder": 0,
@@ -10,29 +10,23 @@
   "properties": {
     "Title": {
       "type": "string",
-      "format": "shortString",
       "displayName": "Title",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": -100,
+      "editorSettings": {}
+    },
+    "Description": {
+      "type": "string",
+      "displayName": "Description",
       "description": "",
       "localized": false,
       "required": false,
       "group": "Information",
       "sortOrder": 0,
       "editorSettings": {}
-    },
-    "Url": {
-      "type": "array",
-      "format": "LinkCollection",
-      "displayName": "Url",
-      "description": "",
-      "localized": false,
-      "required": false,
-      "group": "Information",
-      "sortOrder": 0,
-      "editorSettings": {},
-      "items": {
-        "type": "component",
-        "contentType": "link"
-      }
     }
   }
 }

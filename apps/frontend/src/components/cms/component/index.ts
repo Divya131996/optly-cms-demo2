@@ -13,8 +13,6 @@ import OdpEmbedBlockComponent from "./OdpEmbedBlock";
 import MenuNavigationBlockComponent from "./MenuNavigationBlock";
 import MegaMenuGroupBlockMobileComponent from "./MegaMenuGroupBlock/mobile";
 import MegaMenuGroupBlockComponent from "./MegaMenuGroupBlock";
-import LinkItemBlockComponent from "./LinkItemBlock";
-import LinkGridComponent from "./LinkGrid";
 import LayoutSettingsBlockComponent from "./LayoutSettingsBlock";
 import ImageElementComponent from "./ImageElement";
 import HeroBlockComponent from "./HeroBlock";
@@ -23,6 +21,7 @@ import CTAElementComponent from "./CTAElement";
 import ContinueReadingComponentComponent from "./ContinueReadingComponent";
 import ContentRecsElementComponent from "./ContentRecsElement";
 import CarouselBlockComponent from "./CarouselBlock";
+import CardListComponent from "./CardList";
 import ButtonBlockComponent from "./ButtonBlock";
 import ArticleListElementComponent from "./ArticleListElement";
 import ArticleListElementLoader from "./ArticleListElement/loading";
@@ -82,14 +81,6 @@ export const ComponentFactory : ComponentTypeDictionary = [
         component: MegaMenuGroupBlockComponent 
     },
     { 
-        type: "LinkItemBlock", 
-        component: LinkItemBlockComponent 
-    },
-    { 
-        type: "LinkGrid", 
-        component: LinkGridComponent 
-    },
-    { 
         type: "LayoutSettingsBlock", 
         component: LayoutSettingsBlockComponent 
     },
@@ -120,6 +111,10 @@ export const ComponentFactory : ComponentTypeDictionary = [
     { 
         type: "CarouselBlock", 
         component: CarouselBlockComponent 
+    },
+    { 
+        type: "CardList", 
+        component: CardListComponent 
     },
     { 
         type: "ButtonBlock", 

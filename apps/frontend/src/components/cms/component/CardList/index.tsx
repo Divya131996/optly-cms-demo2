@@ -1,12 +1,12 @@
 import { type CmsComponent } from "@remkoj/optimizely-cms-react";
-import { LinkItemBlockDataFragmentDoc, type LinkItemBlockDataFragment } from "@/gql/graphql";
+import { CardListDataFragmentDoc, type CardListDataFragment } from "@/gql/graphql";
 
 /**
- * LinkItemBlock
+ * CardList
  * 
  */
-export const LinkItemBlockComponent : CmsComponent<LinkItemBlockDataFragment> = ({ data, children }) => {
-    const componentName = 'LinkItemBlock'
+export const CardListComponent : CmsComponent<CardListDataFragment> = ({ data, children }) => {
+    const componentName = 'CardList'
     const componentInfo = ''
     return <div className="w-full border-y border-y-solid border-y-slate-900 py-2 mb-4">
         <div className="font-bold italic">{ componentName }</div>
@@ -15,7 +15,7 @@ export const LinkItemBlockComponent : CmsComponent<LinkItemBlockDataFragment> = 
         { children && <div className="mt-4 mx-4 flex flex-col">{ children }</div>}
     </div>
 }
-LinkItemBlockComponent.displayName = "LinkItemBlock (Component/LinkItemBlock)"
-LinkItemBlockComponent.getDataFragment = () => ['LinkItemBlockData', LinkItemBlockDataFragmentDoc]
+CardListComponent.displayName = "CardList (Component/CardList)"
+CardListComponent.getDataFragment = () => ['CardListData', CardListDataFragmentDoc]
 
-export default LinkItemBlockComponent
+export default CardListComponent

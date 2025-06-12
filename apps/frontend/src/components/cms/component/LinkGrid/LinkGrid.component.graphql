@@ -1,4 +1,0 @@
-fragment LinkGridData on LinkGrid {
-  Title
-  LinkGridItem { ...IContentListItem }
-}
