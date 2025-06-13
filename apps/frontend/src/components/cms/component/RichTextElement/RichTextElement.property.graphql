@@ -1,0 +1,3 @@
+fragment RichTextElementPropertyData on RichTextElementProperty {
+  text { json, html }
+}

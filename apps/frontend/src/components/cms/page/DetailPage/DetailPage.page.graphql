@@ -1,0 +1,5 @@
+fragment DetailPageData on DetailPage {
+  Header { ...BlockData }
+  RichText { ...RichTextElementPropertyData }
+  ArticleList { ...ArticleListElementPropertyData }
+}

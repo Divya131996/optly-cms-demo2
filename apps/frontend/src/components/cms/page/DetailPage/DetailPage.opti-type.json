@@ -1,0 +1,53 @@
+{
+  "key": "DetailPage",
+  "displayName": "DetailPage",
+  "description": "",
+  "baseType": "page",
+  "sortOrder": 0,
+  "mayContainTypes": [
+    "*"
+  ],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "properties": {
+    "Header": {
+      "type": "array",
+      "displayName": "Header",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": -100,
+      "editorSettings": {},
+      "items": {
+        "type": "content",
+        "allowedTypes": [
+          "HeroBlock"
+        ],
+        "restrictedTypes": []
+      }
+    },
+    "RichText": {
+      "type": "component",
+      "contentType": "RichTextElement",
+      "displayName": "RichText",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "ArticleList": {
+      "type": "component",
+      "contentType": "ArticleListElement",
+      "displayName": "ArticleList",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    }
+  }
+}

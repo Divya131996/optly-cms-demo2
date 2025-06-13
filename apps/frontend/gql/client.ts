@@ -586,6 +586,57 @@ export const BlogPostPageSearchResultFragmentDoc = gql`
   }
 }
     `;
+export const RichTextElementPropertyDataFragmentDoc = gql`
+    fragment RichTextElementPropertyData on RichTextElementProperty {
+  text {
+    json
+    html
+  }
+}
+    `;
+export const ArticleListElementPropertyDataFragmentDoc = gql`
+    fragment ArticleListElementPropertyData on ArticleListElementProperty {
+  articleListCount
+  topics
+}
+    `;
+export const DetailPageDataFragmentDoc = gql`
+    fragment DetailPageData on DetailPage {
+  Header {
+    ...BlockData
+    ...ArticleListElementData
+    ...ButtonBlockData
+    ...CTAElementData
+    ...CardListData
+    ...CardsData
+    ...CarouselBlockData
+    ...ContentRecsElementData
+    ...ContinueReadingComponentData
+    ...HeadingElementData
+    ...HeroBlockData
+    ...ImageElementData
+    ...LayoutSettingsBlockData
+    ...MegaMenuGroupBlockData
+    ...MenuNavigationBlockData
+    ...OdpEmbedBlockData
+    ...PageSeoSettingsData
+    ...ParagraphElementData
+    ...QuoteBlockData
+    ...RichTextElementData
+    ...TestRichTextData
+    ...TestimonialElementData
+    ...TextBlockData
+    ...VideoElementData
+    ...BlankSectionData
+  }
+  RichText {
+    ...RichTextElementPropertyData
+  }
+  ArticleList {
+    ...ArticleListElementPropertyData
+  }
+}
+    `;
 export const LandingPageDataFragmentDoc = gql`
     fragment LandingPageData on LandingPage {
   TopContentArea {
@@ -1157,6 +1208,7 @@ export const getContentByIdDocument = gql`
       ...BlankExperienceData
       ...BlogSectionExperienceData
       ...BlogPostPageData
+      ...DetailPageData
       ...LandingPageData
     }
   }
@@ -1207,6 +1259,9 @@ ${ElementDataFragmentDoc}
 ${IElementDataFragmentDoc}
 ${BlogSectionExperienceDataFragmentDoc}
 ${BlogPostPageDataFragmentDoc}
+${DetailPageDataFragmentDoc}
+${RichTextElementPropertyDataFragmentDoc}
+${ArticleListElementPropertyDataFragmentDoc}
 ${LandingPageDataFragmentDoc}`;
 export const getContentByPathDocument = gql`
     query getContentByPath($path: [String!]!, $locale: [Locales!], $siteId: String) {
@@ -1221,6 +1276,7 @@ export const getContentByPathDocument = gql`
       ...BlankExperienceData
       ...BlogSectionExperienceData
       ...BlogPostPageData
+      ...DetailPageData
       ...LandingPageData
     }
   }
@@ -1271,6 +1327,9 @@ ${VideoElementDataFragmentDoc}
 ${BlankSectionDataFragmentDoc}
 ${BlogSectionExperienceDataFragmentDoc}
 ${BlogPostPageDataFragmentDoc}
+${DetailPageDataFragmentDoc}
+${RichTextElementPropertyDataFragmentDoc}
+${ArticleListElementPropertyDataFragmentDoc}
 ${LandingPageDataFragmentDoc}`;
 export const getContentTypeDocument = gql`
     query getContentType($key: String!, $version: String, $locale: [Locales!], $path: String, $domain: String) {

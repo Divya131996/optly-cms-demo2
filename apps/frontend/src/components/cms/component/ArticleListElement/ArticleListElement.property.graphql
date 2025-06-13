@@ -1,0 +1,4 @@
+fragment ArticleListElementPropertyData on ArticleListElementProperty {
+  articleListCount
+  topics
+}
