@@ -40,9 +40,6 @@ export default async function SiteHeader({ locale, ctx }: HeaderProps)
             <Suspense fallback={<Logo />}>
                 <Logo />
             </Suspense>
-               <Suspense fallback={<Logo />}>
-                <Logo />
-            </Suspense>
             <CmsContentArea as={ PopoverGroup } className="main-menu hidden 2xl:grow lg:order-last lg:basis-full 2xl:order-none 2xl:basis-auto lg:flex flex-row items-stretch" items={ headerData?.mainMenu } itemWrapper={{ noWrapper: true }} ctx={ ctx }/>
             <SecondaryMenu className='grow-0 shrink-0' utilityItems={ headerData?.serviceButtons } ctx={ ctx } />
             <MobileMenu menuItems={ headerData?.mainMenu } serviceItems={ headerData?.serviceButtons } ctx={ ctx } />

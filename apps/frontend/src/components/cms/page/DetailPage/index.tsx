@@ -15,7 +15,8 @@ export const DetailPagePage: CmsComponent<DetailPageDataFragment> = ({ data, chi
 
     return (
         <div className="mx-auto px-2 container">
-        
+            <div className="font-bold italic text-lg mb-4">{componentName}</div>
+
             {heroBlock && (
                 <section className={`bg-${heroBlock.heroColor ?? "gray"}-100 p-6 mb-6 rounded`}>
                     {heroBlock.heroImage?.url?.default && (
