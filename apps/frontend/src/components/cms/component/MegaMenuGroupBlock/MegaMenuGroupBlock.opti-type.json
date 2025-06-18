@@ -28,25 +28,6 @@
       "group": "Information",
       "sortOrder": 20,
       "editorSettings": {}
-    },
-    "MegaMenuContentArea": {
-      "type": "array",
-      "displayName": "Navigation content",
-      "description": "",
-      "localized": false,
-      "required": false,
-      "group": "Information",
-      "sortOrder": 30,
-      "editorSettings": {},
-      "items": {
-        "type": "content",
-        "allowedTypes": [
-          "CardBlock",
-          "MenuNavigationBlock",
-          "BlogPostPage"
-        ],
-        "restrictedTypes": []
-      }
     }
   }
 }
