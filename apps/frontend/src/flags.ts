@@ -19,7 +19,7 @@ export const layout_configuration = flag<OptimizelyFlag<{
   /**
    * The URL/Path to the logo file to use
    *
-   * @defaultValue /assets/moseybank-logo.svg
+   * @defaultValue /assets/sportsorbitlogo.png
    * @opti string
    */
   logo: string,
@@ -34,7 +34,7 @@ export const layout_configuration = flag<OptimizelyFlag<{
     key: 'layout_configuration',
     origin: `https://app.optimizely.com/v2/projects/${projectId}/flags/manage/layout_configuration/variations`,
     description: 'Test various layout configurations to determine the best possible layout',
-    defaultValue: {"_enabled":false,"logo":"/assets/moseybank-logo.svg","theme_switcher":true},
+    defaultValue: {"_enabled":false,"logo":"/assets/sportsorbitlogo.png","theme_switcher":true},
     async decide() {
         "use server"
         const ctx = await getUserContext()
@@ -53,7 +53,7 @@ export const layout_configuration = flag<OptimizelyFlag<{
     options: [
         {
             label: "Off",
-            value: {"_enabled":false,"logo":"/assets/moseybank-logo.svg","theme_switcher":true}
+            value: {"_enabled":false,"logo":"/assets/sportsorbitlogo.png","theme_switcher":true}
         }
     ]
 })
