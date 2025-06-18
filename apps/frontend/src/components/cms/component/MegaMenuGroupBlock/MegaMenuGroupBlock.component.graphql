@@ -4,9 +4,4 @@ fragment MegaMenuGroupBlockData on MegaMenuGroupBlock {
   }
   MenuMenuHeading
   MegaMenuUrl { ...LinkData }
-  MegaMenuContentArea { 
-    ...IContentData
-    ...MenuNavigationBlockData
-    ...BlogPostPageMenuBlock
-  }
 }
