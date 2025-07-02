@@ -2,6 +2,12 @@ import type * as Schema from "./graphql";
 import type { GraphQLClient, RequestOptions } from 'graphql-request';
 import gql from 'graphql-tag';
 type GraphQLClientRequestHeaders = RequestOptions['requestHeaders'];
+export const ArticleListElementPropertyDataFragmentDoc = gql`
+    fragment ArticleListElementPropertyData on ArticleListElementProperty {
+  articleListCount
+  topics
+}
+    `;
 export const LinkDataFragmentDoc = gql`
     fragment LinkData on ContentUrl {
   base
@@ -13,6 +19,36 @@ export const ReferenceDataFragmentDoc = gql`
   key
   url {
     ...LinkData
+  }
+}
+    `;
+export const BlogPostPageMenuBlockFragmentDoc = gql`
+    fragment BlogPostPageMenuBlock on BlogPostPage {
+  meta: _metadata {
+    published
+    url {
+      ...LinkData
+    }
+  }
+  topics: Topic
+  heading: Heading
+  author: ArticleAuthor
+  image: BlogPostPromoImage {
+    ...ReferenceData
+  }
+  sharing: SeoSettings {
+    description: MetaDescription
+    image: SharingImage {
+      ...ReferenceData
+    }
+  }
+}
+    `;
+export const RichTextElementPropertyDataFragmentDoc = gql`
+    fragment RichTextElementPropertyData on RichTextElementProperty {
+  text {
+    json
+    html
   }
 }
     `;
@@ -243,39 +279,6 @@ export const LayoutSettingsBlockDataFragmentDoc = gql`
   appIdentifiers
 }
     `;
-export const MenuNavigationBlockDataFragmentDoc = gql`
-    fragment MenuNavigationBlockData on MenuNavigationBlock {
-  _metadata {
-    displayName
-  }
-  MenuNavigationHeading
-  NavigationLinks {
-    ...LinkItemData
-  }
-}
-    `;
-export const BlogPostPageMenuBlockFragmentDoc = gql`
-    fragment BlogPostPageMenuBlock on BlogPostPage {
-  meta: _metadata {
-    published
-    url {
-      ...LinkData
-    }
-  }
-  topics: Topic
-  heading: Heading
-  author: ArticleAuthor
-  image: BlogPostPromoImage {
-    ...ReferenceData
-  }
-  sharing: SeoSettings {
-    description: MetaDescription
-    image: SharingImage {
-      ...ReferenceData
-    }
-  }
-}
-    `;
 export const MegaMenuGroupBlockDataFragmentDoc = gql`
     fragment MegaMenuGroupBlockData on MegaMenuGroupBlock {
   _metadata {
@@ -285,10 +288,16 @@ export const MegaMenuGroupBlockDataFragmentDoc = gql`
   MegaMenuUrl {
     ...LinkData
   }
-  MegaMenuContentArea {
-    ...IContentData
-    ...MenuNavigationBlockData
-    ...BlogPostPageMenuBlock
+}
+    `;
+export const MenuNavigationBlockDataFragmentDoc = gql`
+    fragment MenuNavigationBlockData on MenuNavigationBlock {
+  _metadata {
+    displayName
+  }
+  MenuNavigationHeading
+  NavigationLinks {
+    ...LinkItemData
   }
 }
     `;
@@ -586,23 +595,14 @@ export const BlogPostPageSearchResultFragmentDoc = gql`
   }
 }
     `;
-export const RichTextElementPropertyDataFragmentDoc = gql`
-    fragment RichTextElementPropertyData on RichTextElementProperty {
-  text {
-    json
-    html
-  }
-}
-    `;
-export const ArticleListElementPropertyDataFragmentDoc = gql`
-    fragment ArticleListElementPropertyData on ArticleListElementProperty {
-  articleListCount
-  topics
-}
-    `;
 export const DetailPageDataFragmentDoc = gql`
     fragment DetailPageData on DetailPage {
-  Header {
+  Title
+  Description
+  Image {
+    ...ReferenceData
+  }
+  DetailPageContentArea {
     ...BlockData
     ...ArticleListElementData
     ...ButtonBlockData
@@ -628,12 +628,6 @@ export const DetailPageDataFragmentDoc = gql`
     ...TextBlockData
     ...VideoElementData
     ...BlankSectionData
-  }
-  RichText {
-    ...RichTextElementPropertyData
-  }
-  ArticleList {
-    ...ArticleListElementPropertyData
   }
 }
     `;
@@ -789,7 +783,6 @@ ${LayoutSettingsBlockDataFragmentDoc}
 ${LinkItemDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
 ${MenuNavigationBlockDataFragmentDoc}
-${BlogPostPageMenuBlockFragmentDoc}
 ${OdpEmbedBlockDataFragmentDoc}
 ${PageSeoSettingsDataFragmentDoc}
 ${ParagraphElementDataFragmentDoc}
@@ -1028,10 +1021,6 @@ export const getHeaderDataDocument = gql`
 ${IContentInfoFragmentDoc}
 ${LinkDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
-${MenuNavigationBlockDataFragmentDoc}
-${LinkItemDataFragmentDoc}
-${BlogPostPageMenuBlockFragmentDoc}
-${ReferenceDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}`;
 export const getLocalesDocument = gql`
     query getLocales {
@@ -1239,7 +1228,6 @@ ${LayoutSettingsBlockDataFragmentDoc}
 ${LinkItemDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
 ${MenuNavigationBlockDataFragmentDoc}
-${BlogPostPageMenuBlockFragmentDoc}
 ${OdpEmbedBlockDataFragmentDoc}
 ${PageSeoSettingsDataFragmentDoc}
 ${ParagraphElementDataFragmentDoc}
@@ -1260,8 +1248,6 @@ ${IElementDataFragmentDoc}
 ${BlogSectionExperienceDataFragmentDoc}
 ${BlogPostPageDataFragmentDoc}
 ${DetailPageDataFragmentDoc}
-${RichTextElementPropertyDataFragmentDoc}
-${ArticleListElementPropertyDataFragmentDoc}
 ${LandingPageDataFragmentDoc}`;
 export const getContentByPathDocument = gql`
     query getContentByPath($path: [String!]!, $locale: [Locales!], $siteId: String) {
@@ -1314,7 +1300,6 @@ ${LayoutSettingsBlockDataFragmentDoc}
 ${LinkItemDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
 ${MenuNavigationBlockDataFragmentDoc}
-${BlogPostPageMenuBlockFragmentDoc}
 ${OdpEmbedBlockDataFragmentDoc}
 ${PageSeoSettingsDataFragmentDoc}
 ${ParagraphElementDataFragmentDoc}
@@ -1328,8 +1313,6 @@ ${BlankSectionDataFragmentDoc}
 ${BlogSectionExperienceDataFragmentDoc}
 ${BlogPostPageDataFragmentDoc}
 ${DetailPageDataFragmentDoc}
-${RichTextElementPropertyDataFragmentDoc}
-${ArticleListElementPropertyDataFragmentDoc}
 ${LandingPageDataFragmentDoc}`;
 export const getContentTypeDocument = gql`
     query getContentType($key: String!, $version: String, $locale: [Locales!], $path: String, $domain: String) {

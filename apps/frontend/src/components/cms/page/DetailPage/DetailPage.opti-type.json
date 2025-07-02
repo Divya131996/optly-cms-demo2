@@ -10,44 +10,54 @@
   "mediaFileExtensions": [],
   "compositionBehaviors": [],
   "properties": {
-    "Header": {
-      "type": "array",
-      "displayName": "Header",
+    "Title": {
+      "type": "string",
+      "displayName": "Title",
       "description": "",
       "localized": false,
       "required": false,
       "group": "Information",
       "sortOrder": -100,
+      "editorSettings": {}
+    },
+    "Description": {
+      "type": "string",
+      "displayName": "Description",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "Image": {
+      "type": "contentReference",
+      "displayName": "Image",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 100,
+      "editorSettings": {},
+      "allowedTypes": [],
+      "restrictedTypes": []
+    },
+    "DetailPageContentArea": {
+      "type": "array",
+      "displayName": "Detail Page Content Area",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 200,
       "editorSettings": {},
       "items": {
         "type": "content",
         "allowedTypes": [
-          "HeroBlock"
+          "component"
         ],
         "restrictedTypes": []
       }
-    },
-    "RichText": {
-      "type": "component",
-      "contentType": "RichTextElement",
-      "displayName": "RichText",
-      "description": "",
-      "localized": false,
-      "required": false,
-      "group": "Information",
-      "sortOrder": 0,
-      "editorSettings": {}
-    },
-    "ArticleList": {
-      "type": "component",
-      "contentType": "ArticleListElement",
-      "displayName": "ArticleList",
-      "description": "",
-      "localized": false,
-      "required": false,
-      "group": "Information",
-      "sortOrder": 0,
-      "editorSettings": {}
     }
   }
 }

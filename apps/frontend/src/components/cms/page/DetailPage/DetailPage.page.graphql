@@ -1,5 +1,6 @@
 fragment DetailPageData on DetailPage {
-  Header { ...BlockData }
-  RichText { ...RichTextElementPropertyData }
-  ArticleList { ...ArticleListElementPropertyData }
+  Title
+  Description
+  Image { ...ReferenceData }
+  DetailPageContentArea { ...BlockData }
 }

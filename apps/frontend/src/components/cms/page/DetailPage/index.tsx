@@ -1,81 +1,45 @@
-import { type OptimizelyNextPage as CmsComponent } from "@remkoj/optimizely-cms-nextjs"
-import { DetailPageDataFragmentDoc, type DetailPageDataFragment } from "@/gql/graphql"
+import { type OptimizelyNextPage as CmsComponent } from "@remkoj/optimizely-cms-nextjs";
+import { DetailPageDataFragmentDoc, type DetailPageDataFragment , ReferenceDataFragmentDoc ,LinkDataFragmentDoc} from "@/gql/graphql";
 import { getSdk } from "@/gql"
-import Image from "next/image"
-import Link from "next/link"
+import { CmsContentArea } from "@remkoj/optimizely-cms-react/rsc";
+import { CmsEditable } from "@remkoj/optimizely-cms-react";
+import Image from "next/image";
+import { getFragmentData } from "@gql/fragment-masking";
 
 /**
  * DetailPage
+ * 
  */
-export const DetailPagePage: CmsComponent<DetailPageDataFragment> = ({ data, children }) => {
-    const componentName = "DetailPage"
-    const heroBlock = data?.Header?.[0]
-    const richText = data?.RichText?.text?.html
-    const articleList = data?.ArticleList
-
-    return (
-        <div className="mx-auto px-2 container">
-            <div className="font-bold italic text-lg mb-4">{componentName}</div>
-
-            {heroBlock && (
-                <section className={`bg-${heroBlock.heroColor ?? "gray"}-100 p-6 mb-6 rounded`}>
-                    {heroBlock.heroImage?.url?.default && (
-                        <div className="mb-4">
-                            <Image
-                                src={heroBlock.heroImage.url.default}
-                                alt="Hero Image"
-                                width={1200}
-                                height={400}
-                                className="rounded object-cover w-full h-auto"
-                            />
-                        </div>
-                    )}
-                    <div dangerouslySetInnerHTML={{ __html: heroBlock.heroDescription?.html ?? "" }} />
-
-                    {heroBlock.heroButton?.url?.default && (
-                        <div className="mt-4">
-                            <Link
-                                href={heroBlock.heroButton.url.default}
-                                className="inline-block bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700 transition"
-                            >
-                                {heroBlock.heroButton.children ?? "Learn More"}
-                            </Link>
-                        </div>
-                    )}
-                </section>
-            )}
-
-            {richText && (
-                <section className="mb-6 prose max-w-none">
-                    <div dangerouslySetInnerHTML={{ __html: richText }} />
-                </section>
-            )}
-
-            {articleList?.topics?.length > 0 && (
-                <section className="mb-6">
-                    <h2 className="text-xl font-semibold mb-2">Topics</h2>
-                    <ul className="list-disc list-inside space-y-1">
-                        {articleList.topics.map((topic, index) => (
-                            <li key={index}>{topic}</li>
-                        ))}
-                    </ul>
-                </section>
-            )}
-
-            {children && (
-                <div className="flex flex-col mt-4 mx-4">
-                    {children}
-                </div>
-            )}
+export const DetailPagePage : CmsComponent<DetailPageDataFragment> = ({ data:{Title, Description,DetailPageContentArea,Image:ImageRef }, ctx }) => {
+  const hasImage = Image != null && Image != undefined;
+  const ImageTest = getFragmentData(ReferenceDataFragmentDoc, ImageRef);
+  const ImageLink = getFragmentData(LinkDataFragmentDoc, ImageTest?.url);
+  const ImageSrc = new URL(
+    ImageLink?.default ?? "/",
+    ImageLink?.base ?? "https://example.com",
+  ).href;
+    return <div className="mx-auto px-2 container">
+    <CmsEditable as="div" className="text-5xl p-4 md:p-8 xl:p-10"  ctx={ ctx } cmsFieldName={Title}>{Title}</CmsEditable>
+                {hasImage && (
+        <div className="order-first @[40rem]/card:order-last">
+            <Image
+            className="rounded-[2rem] w-full"
+            src={ImageSrc}
+            alt="Detail Page Image"
+            width={400}
+            height={300}
+            />
         </div>
-    )
+        )}
+    <CmsEditable as="div" className="text-3xl p-3 md:p-8 xl:p-7"  ctx={ ctx } cmsFieldName={Description}>{Description}</CmsEditable>
+    <CmsContentArea fieldName="TopContentArea" items={DetailPageContentArea} className="w-full" ctx={ctx} />
+            
+    </div>
 }
-
 DetailPagePage.displayName = "DetailPage (Page/DetailPage)"
-DetailPagePage.getDataFragment = () => ["DetailPageData", DetailPageDataFragmentDoc]
+DetailPagePage.getDataFragment = () => ['DetailPageData', DetailPageDataFragmentDoc]
 DetailPagePage.getMetaData = async (contentLink, locale, client) => {
-    const sdk = getSdk(client)
-    // Add your metadata logic here
+    const sdk = getSdk(client);
     return {}
 }
 
